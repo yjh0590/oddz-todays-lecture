@@ -3,6 +3,7 @@
 | 폴더 | 내용 |
 | --- | --- |
 | `inu/` | 인천대 v0.2.6. 설치 시 `inu/extension` 선택 |
+| `kmooc/` | K-MOOC v0.1.0 (인천대 버전 기반, 시험판). 설치 시 `kmooc/extension` 선택 |
 | `catholic/` | 가톨릭대 v0.6.9. 설치 시 폴더 자체 선택. 기술 경위는 `catholic/HANDOFF.md` |
 | `website/` | oddz 홈페이지 덮어쓰기 수정본(전체 사이트 아님). 실제 사이트 저장소는 `oddz_main` |
 
