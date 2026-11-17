@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "오늘의 강의 - 가톨릭대 LMS",
+  "version": "0.6.9",
+  "description": "가톨릭대 Canvas/LearningX 강의를 순서대로 재생하고, 영상 종료 후 다음 강의로 이동하는 실험용 확장프로그램",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "debugger"
+  ],
+  "host_permissions": [
+    "https://canvas.catholic.ac.kr/*",
+    "https://cms.catholic.ac.kr/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "오늘의 강의"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://canvas.catholic.ac.kr/*",
+        "https://cms.catholic.ac.kr/*"
+      ],
+      "js": [
+        "beforeunload-hook.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true,
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://canvas.catholic.ac.kr/*"
+      ],
+      "js": [
+        "canvas-content.js",
+        "ui-content.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://cms.catholic.ac.kr/*"
+      ],
+      "js": [
+        "cms-content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}

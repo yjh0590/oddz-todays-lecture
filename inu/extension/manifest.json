@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "oddz LMS 오늘의 강의",
+  "version": "0.2.7",
+  "description": "인천대 LMS에서 직접 선택한 여러 과목의 영상을 순서대로 재생하는 로컬 시험판",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://lms.inu.ac.kr/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://lms.inu.ac.kr/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "oddz · 오늘의 강의",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  }
+}
